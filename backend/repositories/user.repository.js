@@ -29,16 +29,31 @@ export async function updateUserProfile(
 }
 
 export async function createUser(firebaseUid, email, firstName, lastName) {
-  const res = await db.query(
-    `
-    INSERT INTO users (firebase_uid, email, first_name, last_name, role)
-    VALUES ($1, $2, $3, $4, 'user')
-    RETURNING id, first_name, last_name, email, role
-    `,
-    [firebaseUid, email, firstName || null, lastName || null],
-  );
-  
-  return res.rows[0];
+  try {
+    const res = await db.query(
+      `
+      INSERT INTO users (firebase_uid, email, first_name, last_name, role)
+      VALUES ($1, $2, $3, $4, 'user')
+      RETURNING id, first_name, last_name, email, role
+      `,
+      [firebaseUid, email, firstName || null, lastName || null],
+    );
+    
+    if (!res.rows || res.rows.length === 0) {
+      throw new Error("Failed to create user: no rows returned");
+    }
+    
+    return res.rows[0];
+  } catch (error) {
+    // Если пользователь уже существует (race condition), пытаемся получить его
+    if (error.code === '23505' || error.message.includes('duplicate') || error.message.includes('unique')) {
+      const existingUser = await findByFirebaseUid(firebaseUid);
+      if (existingUser) {
+        return existingUser;
+      }
+    }
+    throw error;
+  }
 }
 
 export async function userExists(firebaseUid) {
