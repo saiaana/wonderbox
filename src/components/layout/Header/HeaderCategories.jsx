@@ -6,7 +6,7 @@ import { MENU_ITEMS } from "../../../constants/menuItems";
 
 const baseItemClass = `
   relative inline-block cursor-pointer
-  text-xs font-medium uppercase
+  text-xs font-medium uppercase 
   transition-colors duration-300
   after:content-['']
   after:absolute after:left-0 after:-bottom-1
