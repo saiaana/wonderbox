@@ -29,13 +29,16 @@ export async function updateUserProfile(
 }
 
 export async function createUser(firebaseUid, email, firstName, lastName) {
-  await db.query(
+  const res = await db.query(
     `
     INSERT INTO users (firebase_uid, email, first_name, last_name, role)
     VALUES ($1, $2, $3, $4, 'user')
+    RETURNING id, first_name, last_name, email, role
     `,
     [firebaseUid, email, firstName || null, lastName || null],
   );
+  
+  return res.rows[0];
 }
 
 export async function userExists(firebaseUid) {

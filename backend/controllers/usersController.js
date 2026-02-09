@@ -2,7 +2,15 @@ import * as userService from "../services/user.service.js";
 
 export async function getCurrentUser(req, res) {
   try {
-    const user = await userService.getCurrentUser(req.user.uid);
+    // Получаем данные из Firebase decoded token
+    const { uid, email, name, displayName } = req.user;
+    
+    // Используем name или displayName (в зависимости от того, что есть в токене)
+    const userName = name || displayName || null;
+    
+    // Upsert: получаем пользователя или создаём если его нет
+    const user = await userService.getCurrentUser(uid, email, userName);
+    
     res.json(user);
   } catch (err) {
     res.status(err.status || 500).json({ error: err.message });
