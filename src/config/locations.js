@@ -7,10 +7,10 @@ export const getLocationsConfig = (t) => ({
     },
   ],
   contacts: {
-    email: "saygrig@gmail.com",
+    email: "biz@hydrosta.com",
     phone: {
-      display: "+82 10-6527-9871",
-      link: "tel:+821065279871",
+      display: "051-646-0002",
+      link: "tel: 0516460002",
     },
   },
 });
