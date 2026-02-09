@@ -37,3 +37,27 @@
   transform: translateZ(0);
   will-change: transform;
 }
+
+/* Brands Slider Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  --animation-duration: 40s;
+  animation: scroll-left var(--animation-duration) linear infinite;
+  display: flex;
+  width: fit-content;
+  will-change: transform;
+  transition: animation-play-state 0.4s ease-in-out, transform 0.4s ease-out;
+}
+
+.animation-paused {
+  animation-play-state: paused;
+  transition: animation-play-state 0.4s ease-in-out, transform 0.4s ease-out;
+}

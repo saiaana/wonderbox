@@ -1,14 +1,16 @@
+import { useTranslation } from "react-i18next";
 import InputField from "./InputField";
 
 export default function LoginForm({ formData, onChange }) {
+  const { t } = useTranslation();
   const fieldRows = [
     [
-      { name: "email", label: "Email", type: "email", placeholder: "Email" },
+      { name: "email", label: t("auth.email"), type: "email", placeholder: t("auth.email") },
       {
         name: "password",
-        label: "Password",
+        label: t("auth.password"),
         type: "password",
-        placeholder: "Password",
+        placeholder: t("auth.password"),
       },
     ],
   ];

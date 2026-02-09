@@ -1,15 +1,19 @@
+import { useTranslation } from "react-i18next";
+
 export default function OrderSummary({ itemsCount, totalPrice, isDisabled }) {
+  const { t } = useTranslation();
+
   return (
     <div className="sticky top-24 h-fit rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-bold text-stone-800">Order summary</h2>
+      <h2 className="mb-4 text-lg font-bold text-stone-800">{t("cart.orderSummary")}</h2>
 
       <div className="flex items-center justify-between border-b border-stone-200 pb-4">
-        <span className="text-sm text-stone-500">Items selected</span>
+        <span className="text-sm text-stone-500">{t("cart.itemsSelected")}</span>
         <span className="text-sm font-semibold">{itemsCount}</span>
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <span className="text-base font-medium text-stone-600">Total</span>
+        <span className="text-base font-medium text-stone-600">{t("cart.total")}</span>
         <span className="text-2xl font-extrabold text-pink-600">
           ${totalPrice}
         </span>
@@ -24,12 +28,12 @@ export default function OrderSummary({ itemsCount, totalPrice, isDisabled }) {
             : "bg-pink-600 text-white hover:bg-pink-700 hover:shadow-lg"
         } `}
       >
-        Place order
+        {t("order.createOrder")}
       </button>
 
       {isDisabled && (
         <p className="mt-3 text-center text-sm text-stone-500">
-          Select at least one item to proceed
+          {t("cart.selectItemToProceed")}
         </p>
       )}
     </div>

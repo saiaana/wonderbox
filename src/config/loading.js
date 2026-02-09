@@ -1,4 +1,4 @@
 export const loadingConfig = {
-    title: "TINT",
+    title: "Wonderbox",
     description: "your k-beauty store",
 }

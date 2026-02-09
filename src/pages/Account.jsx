@@ -5,8 +5,10 @@ import UserInfo from "../components/pages/account/UserInfo";
 import ROUTES from "../constants/routes";
 import Loading from "./Loading";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 function Account() {
+  const { t } = useTranslation();
   const user = useSelector((state) => state.auth.user);
   const isAuthInitialized = useSelector((state) => state.auth.initialized);
 
@@ -24,7 +26,7 @@ function Account() {
   return (
     <div className="mx-auto max-w-5xl px-4">
       <h1 className="mb-8 text-3xl font-extrabold text-stone-800">
-        My account
+        {t("account.title")}
       </h1>
       <div className="grid gap-8 md:grid-cols-[300px_1fr]">
         <UserInfo user={user} />

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../constants/routes";
 import { formatPrice } from "../../../utils/helpers";
@@ -25,6 +26,7 @@ const styles = {
 };
 
 function CartFooter({ totalPrice }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const isDisabled = totalPrice <= 0;
 
@@ -32,7 +34,7 @@ function CartFooter({ totalPrice }) {
     <div className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.totalContainer}>
-          <span className={styles.totalLabel}>Total</span>
+          <span className={styles.totalLabel}>{t("cart.total")}</span>
           <span className={styles.totalPrice(isDisabled)}>
             {formatPrice(totalPrice)}
           </span>
@@ -42,12 +44,12 @@ function CartFooter({ totalPrice }) {
           onClick={() => navigate(ROUTES.createOrder)}
           className={styles.button(isDisabled)}
         >
-          Proceed to order
+          {t("cart.proceedToOrder")}
         </button>
       </div>
       <div className={styles.messageContainer}>
         <p className={styles.message(isDisabled)}>
-          Select at least one item to proceed
+          {t("cart.selectItemToProceed")}
         </p>
       </div>
     </div>

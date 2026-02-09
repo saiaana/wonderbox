@@ -3,9 +3,11 @@ import LinkGrid from "../components/common/LinkGrid";
 import Loading from "./Loading";
 import { useProductsPage } from "../hooks/useProductsPage";
 import ROUTES from "../constants/routes";
+import { useTranslation } from "react-i18next";
 
 function BrandsList() {
   const { brands, status } = useProductsPage();
+  const { t } = useTranslation();
 
   const getHref = (brand) => {
     return ROUTES.brand(brand);
@@ -30,7 +32,7 @@ function BrandsList() {
   }
 
   return (
-    <LinkGrid  title="brands" items={sortedBrands} getHref={getHref} getAriaLabel={getAriaLabel} emptyText="No brands found." />
+    <LinkGrid  title={t("common.brands")} items={sortedBrands} getHref={getHref} getAriaLabel={getAriaLabel} emptyText="No brands found." />
   );
 }
 

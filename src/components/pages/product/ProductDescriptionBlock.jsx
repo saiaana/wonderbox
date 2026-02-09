@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ProductInfoBlock from "./ProductInfoBlock";
 
 function ProductDescriptionBlock({
@@ -7,19 +8,20 @@ function ProductDescriptionBlock({
   volume,
   ingridients,
 }) {
+  const { t } = useTranslation();
   const [showIngredients, setShowIngredients] = useState(false);
 
   return (
     <div className="space-y-4 text-sm text-stone-700">
-      <ProductInfoBlock title="Description" value={description} />
-      <ProductInfoBlock title="How to use" value={howToUse} />
-      <ProductInfoBlock title="Volume" value={volume} />
+      <ProductInfoBlock title={t("product.description")} value={description} />
+      <ProductInfoBlock title={t("product.howToUse")} value={howToUse} />
+      <ProductInfoBlock title={t("product.volume")} value={volume} />
 
       <button
         onClick={() => setShowIngredients((v) => !v)}
         className="w-fit text-sm font-semibold text-stone-800 hover:text-pink-600"
       >
-        {showIngredients ? "Hide ingredients" : "Show ingredients"}
+        {showIngredients ? t("product.hideIngredients") : t("product.showIngredients")}
       </button>
 
       <div
@@ -28,7 +30,7 @@ function ProductDescriptionBlock({
         }`}
       >
         <ProductInfoBlock
-          title="Ingredients"
+          title={t("product.ingredients")}
           value={ingridients}
           textSize="text-xs sm:text-sm"
         />

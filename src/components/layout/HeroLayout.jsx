@@ -1,15 +1,19 @@
+import { useTranslation } from "react-i18next";
 import { Outlet, useMatches } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "../ui/ScrollToTop";
 
 function HeroLayout() {
+  const { t } = useTranslation();
   const matches = useMatches();
   const current = [...matches].reverse().find((match) => match.handle?.label);
-  const label =
+  const labelKey =
     typeof current?.handle?.label === "function"
       ? current.handle.label(current.params)
       : current?.handle?.label;
+  
+  const label = labelKey ? t(`menu.${labelKey.toLowerCase()}`) : null;
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-gray-50">

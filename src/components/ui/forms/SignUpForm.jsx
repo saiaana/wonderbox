@@ -1,34 +1,35 @@
+import { useTranslation } from "react-i18next";
 import InputField from "./InputField";
 
 function SignUpForm({ formData, onChange }) {
+  const { t } = useTranslation();
   const fieldRows = [
     [
-      { name: "email", label: "Email", type: "email", placeholder: "Email" },
+      { name: "email", label: t("auth.email"), type: "email", placeholder: t("auth.email") },
       {
         name: "firstName",
-        label: "First Name",
+        label: t("auth.firstName"),
         type: "text",
-        placeholder: "First Name",
+        placeholder: t("auth.firstName"),
       },
       {
         name: "lastName",
-        label: "Last Name",
+        label: t("auth.lastName"),
         type: "text",
-        placeholder: "Last Name",
+        placeholder: t("auth.lastName"),
       },
       {
         name: "password",
-        label: "Password",
+        label: t("auth.password"),
         type: "password",
-        placeholder: "Password",
-        instructions:
-          "Password must contain minimum 8 symbols including 1 uppercase letter and 1 special character",
+        placeholder: t("auth.password"),
+        instructions: t("auth.passwordInstructions"),
       },
       {
         name: "confirmPassword",
-        label: "Confirm Password",
+        label: t("auth.confirmPassword"),
         type: "password",
-        placeholder: "Confirm Password",
+        placeholder: t("auth.confirmPassword"),
       },
     ],
   ];

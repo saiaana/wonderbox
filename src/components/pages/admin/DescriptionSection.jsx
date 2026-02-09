@@ -1,11 +1,15 @@
+import { useTranslation } from "react-i18next";
 export default function DescriptionSection({ formData, handleInputChange }) {
+  const { t } = useTranslation();
   return (
     <div className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold text-stone-800">Description</h2>
+      <h2 className="mb-4 text-xl font-bold text-stone-800">
+        {t("product.description")}
+      </h2>
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-stone-700">
-            Description
+            {t("product.description")}
           </label>
           <textarea
             name="description"
@@ -17,7 +21,7 @@ export default function DescriptionSection({ formData, handleInputChange }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-stone-700">
-            How to Use
+            {t("product.howToUse")}
           </label>
           <textarea
             name="how_to_use"
@@ -29,7 +33,7 @@ export default function DescriptionSection({ formData, handleInputChange }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-stone-700">
-            Ingredients
+            {t("product.ingredients")}
           </label>
           <textarea
             name="ingridients"
@@ -41,7 +45,7 @@ export default function DescriptionSection({ formData, handleInputChange }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-stone-700">
-            Volume
+            {t("product.volume")}
           </label>
           <input
             type="text"

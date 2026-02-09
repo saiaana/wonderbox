@@ -1,11 +1,14 @@
 import ImagesViewer from "../components/pages/product/ImagesViewer";
 import { useParams } from "react-router-dom";
-import articlesData from "../data/articles.json";
+import { useTranslation } from "react-i18next";
+import { getArticles } from "../utils/blog/getArticles";
 import NotFound from "./NotFound";
 
 function BlogPost() {
   const { blogPostName } = useParams();
-  const article = articlesData.articles.find(
+  const { i18n } = useTranslation();
+  const articles = getArticles(i18n.language);
+  const article = articles.find(
     (article) => article.slug === blogPostName
   );
 

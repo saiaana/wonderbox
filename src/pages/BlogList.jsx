@@ -1,13 +1,15 @@
 import BlogCard from "../components/ui/cards/BlogCard";
-import articlesData from "../data/articles.json";
+import { useTranslation } from "react-i18next";
+import { getArticles } from "../utils/blog/getArticles";
 
 function BlogList() {
-  const articles = articlesData.articles;
+  const { i18n, t } = useTranslation();
+  const articles = getArticles(i18n.language);
 
   if (!articles || articles.length === 0) {
     return (
       <div className="flex items-center justify-center py-20">
-        <p className="text-lg text-gray-500">No articles found.</p>
+        <p className="text-lg text-gray-500">{t("common.noResults")}</p>
       </div>
     );
   }

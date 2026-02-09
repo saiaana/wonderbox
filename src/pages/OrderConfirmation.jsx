@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getOrderById } from "../api/ordersApi";
 import OrderItemInfo from "../components/pages/order/OrderItemInfo";
 import OrderInformation from "../components/pages/order/OrderInformation";
@@ -7,6 +8,7 @@ import OrderNotFound from "../components/pages/order/OrderNotFound";
 import Loading from "./Loading.jsx";
 
 function OrderConfirmation() {
+  const { t } = useTranslation();
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,6 +46,7 @@ function OrderConfirmation() {
 
   return (
     <div className="mx-auto max-w-5xl space-y-10 px-4">
+      <h1 className="mb-8 text-3xl font-extrabold text-stone-800">{t("order.orderConfirmation")}</h1>
       <OrderInformation order={order} />
       <OrderItemInfo order={order} />
     </div>

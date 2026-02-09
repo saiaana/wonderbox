@@ -3,9 +3,11 @@ import LinkGrid from "../components/common/LinkGrid";
 import { useProductsPage } from "../hooks/useProductsPage";
 import Loading from "./Loading";
 import ROUTES from "../constants/routes";
+import { useTranslation } from "react-i18next";
 
 function CategoriesList() {
   const { categories, status } = useProductsPage();
+  const { t } = useTranslation();
 
   const getHref = (category) => {
     return ROUTES.category(category);
@@ -36,7 +38,7 @@ function CategoriesList() {
 
   return (
     <LinkGrid
-      title="categories"  
+      title={t("common.categories")}  
       items={normalizedCategoriesList}
       getHref={getHref}
       getAriaLabel={getAriaLabel}

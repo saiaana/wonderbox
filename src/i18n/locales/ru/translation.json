@@ -1,0 +1,147 @@
+{
+  "common": {
+    "wonderbox": "Wonderbox",
+    "contactUs": "Связаться с нами",
+    "goToHome": "На главную",
+    "goBack": "Назад",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню",
+    "loading": "Загрузка...",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "remove": "Удалить",
+    "selectAll": "Выбрать все",
+    "closeModal": "Закрыть модальное окно",
+    "searching": "Поиск…",
+    "noResults": "Ничего не найдено",
+    "loadingMore": "Загрузка товаров...",
+    "loadingCategories": "Загрузка категорий…",
+    "searchProducts": "Поиск товаров",
+    "searchProductsPlaceholder": "Поиск по названию товара…",
+    "youMayAlsoLike": "Вам также может понравиться",
+    "brands": "Бренды",
+    "categories": "Категории"
+  },
+  "menu": {
+    "brands": "БРЕНДЫ",
+    "categories": "КАТЕГОРИИ",
+    "newIn": "НОВИНКИ",
+    "promotions": "АКЦИИ",
+    "bestsellers": "БЕСТСЕЛЛЕРЫ",
+    "blog": "БЛОГ",
+    "contactUs": "СВЯЗАТЬСЯ С НАМИ",
+    "cart": "КОРЗИНА",
+    "products": "ТОВАРЫ"
+  },
+  "product": {
+    "addToCart": "Добавить в корзину",
+    "addMore": "Добавить еще",
+    "outOfStock": "Нет в наличии",
+    "inStock": "В наличии",
+    "lowStock": "Осталось мало",
+    "selectVariant": "Пожалуйста, выберите вариант",
+    "loadingVariants": "Загрузка вариантов...",
+    "notAvailable": "Товар больше не доступен",
+    "exceededMaxQuantity": "Превышено максимальное доступное количество",
+    "maxQuantityReached": "Достигнуто максимальное доступное количество",
+    "availableVariants": "Доступные варианты",
+    "onlyLeftInStock": "В наличии осталось только {{availableStock}} шт.",
+    "description": "Описание",
+    "howToUse": "Как использовать",
+    "ingredients": "Состав",
+    "volume": "Объем",
+    "showIngredients": "Показать состав",
+    "hideIngredients": "Скрыть состав"
+  },
+  "cart": {
+    "title": "Корзина",
+    "clearCart": "Очистить корзину",
+    "empty": "Ваша корзина пуста.",
+    "emptyDescription": "Похоже, вы еще ничего не добавили в корзину.",
+    "removeItem": "Удалить товар из корзины",
+    "removeItemConfirm": "Вы уверены, что хотите удалить этот товар из корзины?",
+    "clearCartConfirm": "Вы уверены, что хотите очистить корзину?",
+    "clear": "Очистить",
+    "total": "Итого",
+    "proceedToOrder": "Оформить заказ",
+    "selectItemToProceed": "Выберите хотя бы один товар для продолжения",
+    "itemsSelected": "Выбрано товаров",
+    "orderSummary": "Сводка заказа"
+  },
+  "auth": {
+    "login": "Войти",
+    "signup": "Регистрация",
+    "signUp": "Регистрация",
+    "logout": "Выйти",
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "createAccount": "Создать аккаунт",
+    "loggingIn": "Вход...",
+    "creating": "Создание...",
+    "noAccount": "Еще нет аккаунта?",
+    "haveAccount": "Уже есть аккаунт?",
+    "passwordInstructions": "Пароль должен содержать минимум 8 символов, включая 1 заглавную букву и 1 специальный символ"
+  },
+  "order": {
+    "createOrder": "Оформить заказ",
+    "orderConfirmation": "Подтверждение заказа",
+    "orderHistory": "История заказов",
+    "loadingOrders": "Загрузка заказов...",
+    "loadingStatistics": "Загрузка статистики...",
+    "noOrders": "У вас пока нет заказов."
+  },
+  "admin": {
+    "admin": "Админ",
+    "orders": "Заказы",
+    "products": "Товары",
+    "stats": "Статистика",
+    "addProduct": "Добавить товар",
+    "loadingProducts": "Загрузка товаров...",
+    "logoutConfirm": "Вы уверены, что хотите выйти?"
+  },
+  "loading": {
+    "title": "Вандербокс",
+    "description": "ваш магазин k-beauty"
+  },
+  "account": {
+    "title": "Мой аккаунт",
+    "profile": "Профиль"
+  },
+  "contact": {
+    "title": "Связаться с нами",
+    "description": "Мы здесь, чтобы помочь! Свяжитесь с нами по любым вопросам или информации о наших косметических продуктах.",
+    "email": {
+      "title": "Email",
+      "description": "Напишите нам в любое время"
+    },
+    "phone": {
+      "title": "Телефон",
+      "description": "Звоните нам в рабочее время"
+    },
+    "businessHours": {
+      "title": "Часы работы",
+      "weekdays": "Понедельник - Пятница: 9:00 - 18:00",
+      "saturday": "Суббота: 10:00 - 16:00",
+      "sunday": "Воскресенье: Выходной"
+    }
+  },
+  "notFound": {
+    "title": "Страница не найдена",
+    "description": "Страница, которую вы ищете, не существует."
+  },
+  "locations": {
+    "addresses": {
+      "title": "Наши адреса"
+    },
+    "store1": {
+      "name": "НАШ АДРЕС",
+      "address": "Busan, Haeundae-gu, U-dong 1470, AceHightech21, Office 1813"
+    },
+    "contacts": {
+      "title": "Контактная информация"
+    }
+  }
+}

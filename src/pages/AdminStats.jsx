@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ROUTES from "../constants/routes";
 import Loading from "./Loading";
 import { useAdminStats } from "../hooks/useAdminStats";
@@ -7,6 +8,7 @@ import AdminStatsTable from "../components/pages/admin/AdminStatsTable";
 import AdminPageReturnButton from "../components/pages/admin/AdminPageReturnButton";
 
 function AdminStats() {
+  const { t } = useTranslation();
   const user = useSelector((state) => state.auth.user);
   const isAuthInitialized = useSelector((state) => state.auth.initialized);
   const { popularProducts, loading, error } = useAdminStats(user, 20);
@@ -24,7 +26,7 @@ function AdminStats() {
       <div className="mb-8">
 <AdminPageReturnButton />
         <h1 className="mb-2 text-3xl font-extrabold text-stone-800">
-          Statistics
+          {t("admin.stats")}
         </h1>
         <p className="text-stone-600">
           Popular products from the last 12 months
@@ -33,7 +35,7 @@ function AdminStats() {
 
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <p className="text-stone-600">Loading statistics...</p>
+          <p className="text-stone-600">{t("order.loadingStatistics")}</p>
         </div>
       ) : error ? (
         <div className="rounded-lg bg-red-50 p-4 text-red-800">

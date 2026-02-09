@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { memo } from "react";
 import useCartItem from "../../../hooks/useCartItem";
@@ -47,6 +48,7 @@ function CartItem({
   handleDelete,
   handleSelectOne,
 }) {
+  const { t } = useTranslation();
   const {
     mainImage,
     isOnSale,
@@ -123,11 +125,11 @@ function CartItem({
           </div>
           {isInactive && (
             <p className={styles.outOfStockText}>
-              Product is not available anymore
+              {t("product.notAvailable")}
             </p>
           )}
           {!isInactive && isOutOfStock && (
-            <p className={styles.outOfStockText}>Out of stock</p>
+            <p className={styles.outOfStockText}>{t("product.outOfStock")}</p>
           )}
         </div>
 
@@ -156,7 +158,7 @@ function CartItem({
               <p className={styles.totalPrice}>${displayTotal}</p>
               {exceededMaxAvailableQuantity && (
                 <p className={styles.exceededMaxText}>
-                  Exceeded max available quantity
+                  {t("product.exceededMaxQuantity")}
                 </p>
               )}
             </div>
@@ -166,7 +168,7 @@ function CartItem({
 
       <button
         onClick={() => handleDelete(item.product_id, item.variant_id || null)}
-        title="Remove"
+        title={t("common.remove")}
         className={styles.deleteButton}
       >
         ✕

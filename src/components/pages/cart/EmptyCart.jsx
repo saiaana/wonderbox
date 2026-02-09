@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 function EmptyCart() {
+  const { t } = useTranslation();
+  
   return (
     <div className="mt-10 flex flex-col items-center justify-center pb-10 text-center">
       <svg
@@ -15,9 +19,9 @@ function EmptyCart() {
           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h11.2M7 13l.6-3M21 21H3"
         />
       </svg>
-      <p className="text-xl font-medium text-green-600">Your cart is empty.</p>
+      <p className="text-xl font-medium text-green-600">{t("cart.empty")}</p>
       <p className="mt-2 text-xl text-gray-600">
-        Looks like you haven&apos;t added anything to your cart yet.
+        {t("cart.emptyDescription")}
       </p>
     </div>
   );

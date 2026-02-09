@@ -3,6 +3,7 @@ import HeaderCategories from "./Header/HeaderCategories";
 import Logo from "../ui/Logo";
 import NavBlock from "./Header/NavBlock";
 import MobileHeader from "./Header/MobileHeader";
+import LanguageSwitcher from "../common/LanguageSwitcher";
 import { ROLES } from "../../constants/roles";
 
 function Header({ variant = "flow" }) {
@@ -33,7 +34,10 @@ function Header({ variant = "flow" }) {
             </p>
           </div>
           <Logo color="white" />
-          <NavBlock color="white" cartCount={cartCount} isAdmin={isAdmin} />
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher variant="dark" />
+            <NavBlock color="white" cartCount={cartCount} isAdmin={isAdmin} />
+          </div>
         </div>
         <HeaderCategories />
       </header>

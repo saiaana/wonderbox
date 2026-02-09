@@ -1,11 +1,11 @@
 import ROUTES from "./routes";
 
 export const MENU_ITEMS = [
-  { label: "BRANDS", path: ROUTES.brands },
-  { label: "CATEGORIES", path: ROUTES.categories },
-  { label: "NEW IN", path: ROUTES.newIn },
-  { label: "PROMOTIONS", path: ROUTES.promotions },
-  { label: "BESTSELLERS", path: ROUTES.bestsellers },
-  { label: "BLOG", path: ROUTES.blog },
-  { label: "CONTACT US", path: ROUTES.contact },
+  { label: "brands", path: ROUTES.brands },
+  { label: "categories", path: ROUTES.categories },
+  { label: "newIn", path: ROUTES.newIn },
+  { label: "promotions", path: ROUTES.promotions },
+  { label: "bestsellers", path: ROUTES.bestsellers },
+  { label: "blog", path: ROUTES.blog },
+  { label: "contactUs", path: ROUTES.contact },
 ];

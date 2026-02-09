@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ROUTES from "../constants/routes";
 import Loading from "./Loading";
 import { useAdminOrder } from "../hooks/useAdminOrder";
@@ -7,6 +8,7 @@ import AdminOrdersTable from "../components/pages/admin/AdminOrdersTable";
 import AdminPageReturnButton from "../components/pages/admin/AdminPageReturnButton";
 
 function AdminOrderList() {
+  const { t } = useTranslation();
   const user = useSelector((state) => state.auth.user);
   const isAuthInitialized = useSelector((state) => state.auth.initialized);
   const { orders, loading, error, updatingStatus, page, hasMore, total, handleStatusChange, setPage } = useAdminOrder(user);
@@ -24,12 +26,12 @@ function AdminOrderList() {
     <div className="mx-auto max-w-7xl px-4 py-8">
 <AdminPageReturnButton />
       <h1 className="mb-8 text-3xl font-extrabold text-stone-800">
-        Admin Panel - Orders Management
+        {t("admin.admin")} - {t("admin.orders")}
       </h1>
 
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <p className="text-stone-600">Loading orders...</p>
+          <p className="text-stone-600">{t("order.loadingOrders")}</p>
         </div>
       ) : error ? (
         <div className="rounded-lg bg-red-50 p-4 text-red-800">

@@ -1,8 +1,10 @@
 import OrderCard from "./OrderCard";
+import { useTranslation } from "react-i18next";
 
 function OrderList({ loading, error, orders }) {
+  const { t } = useTranslation();
   if (loading) {
-    return <p className="text-sm text-stone-500">Loading your orders…</p>;
+    return <p className="text-sm text-stone-500">{t("order.loadingOrders")}</p>;
   }
 
   if (error) {
@@ -12,15 +14,15 @@ function OrderList({ loading, error, orders }) {
   if (!orders || orders.length === 0) {
     return (
       <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-6 text-xl font-bold text-stone-800">My orders</h2>
-        <p className="text-sm text-stone-600">You don’t have any orders yet.</p>
+        <h2 className="mb-6 text-xl font-bold text-stone-800"> {t("order.orderHistory")} </h2>
+        <p className="text-sm text-stone-600"> {t("order.noOrders")} </p>
       </div>
     );
   }
 
   return (
     <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-6 text-xl font-bold text-stone-800">My orders</h2>
+      <h2 className="mb-6 text-xl font-bold text-stone-800">{t("order.orderHistory")}</h2>
       <div className="space-y-4">
         {orders.map((order) => (
           <OrderCard key={order.id} order={order} />

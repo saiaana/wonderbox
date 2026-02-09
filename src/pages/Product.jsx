@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import SimilarProductSlider from "../components/ui/sliders/SimilarProductSlider";
 import ImagesViewer from "../components/pages/product/ImagesViewer";
 import ProductPriceBlock from "../components/pages/product/ProductPriceBlock";
@@ -12,6 +13,7 @@ import ProductStockStatusBadge from "../components/pages/product/ProductStockSta
 import ProductStockStatusNotice from "../components/pages/product/ProductStockStatusNotice";
 
 function Product() {
+  const { t } = useTranslation();
   const {
     slug,
     product,
@@ -30,21 +32,22 @@ function Product() {
 
   const addToCartButtonText = useMemo(() => {
     if (hasVariants && !selectedVariant) {
-      return "Add to cart";
+      return t("product.addToCart");
     }
     if (isOutOfStock) {
-      return "Out of stock";
+      return t("product.outOfStock");
     }
     if (exceededMaxAvailableQuantity) {
-      return "Max available quantity reached";
+      return t("product.maxQuantityReached");
     }
-    return cart.existsInCart ? "Add more" : "Add to cart";
+    return cart.existsInCart ? t("product.addMore") : t("product.addToCart");
   }, [
     hasVariants,
     selectedVariant,
     isOutOfStock,
     exceededMaxAvailableQuantity,
     cart.existsInCart,
+    t,
   ]);
 
   const isAddToCartButtonDisabled = useMemo(() => {
@@ -74,70 +77,74 @@ function Product() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4">
-      <ProductHeader
-        title={product.title}
-        productCategory={product.product_category}
-        brand={product.brand}
-      />
-      <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2">
-        <ImagesViewer images={images} />
-        <div className="sticky top-24 flex flex-col gap-6 self-start">
-          <ProductPriceBlock
-            originalPrice={product.price}
-            finalPrice={product.finalPrice}
-            isOnSale={product.on_sale}
-          />
-          {(!hasVariants || selectedVariant) && (
-            <ProductStockStatusBadge
-              stockStatus={stockStatus}
-              stockQuantity={product.stock || selectedVariant?.variant_stock}
+    <>
+      <div className="mx-auto max-w-7xl px-4">
+        <ProductHeader
+          title={product.title}
+          productCategory={product.product_category}
+          brand={product.brand}
+        />
+        <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2">
+          <ImagesViewer images={images} />
+          <div className="sticky top-24 flex flex-col gap-6 self-start">
+            <ProductPriceBlock
+              originalPrice={product.price}
+              finalPrice={product.finalPrice}
+              isOnSale={product.on_sale}
             />
-          )}
+            {(!hasVariants || selectedVariant) && (
+              <ProductStockStatusBadge
+                stockStatus={stockStatus}
+                stockQuantity={product.stock || selectedVariant?.variant_stock}
+              />
+            )}
 
-          <ProductDescriptionBlock
-            description={product.description}
-            howToUse={product.how_to_use}
-            volume={product.volume}
-            ingridients={product.ingridients}
-          />
-          <AddToCartButton
-            buttonText={addToCartButtonText}
-            existingCartQuantity={cart.existingQuantity}
-            handleClick={cart.addToCart}
-            disabled={isAddToCartButtonDisabled}
-          />
-          <ProductStockStatusNotice
-            hasVariants={hasVariants}
-            selectedVariant={selectedVariant}
-            productStock={product.stock}
-            isOutOfStock={isOutOfStock}
-            stockStatus={stockStatus}
-            existingCartQuantity={cart.existingQuantity}
-          />
-        </div>
-      </div>
-      {variantsStatus === "loading" && (
-        <div className="mt-16 flex justify-center">
-          <div className="text-gray-500">Loading variants...</div>
-        </div>
-      )}
-      {variantsStatus !== "loading" &&
-        Array.isArray(variants) &&
-        variants.length > 0 && (
-          <div className="mt-16">
-            <ProductVariants
-              variants={variants}
-              productPrice={product.price}
-              onVariantSelect={handleVariantSelect}
-              selectedVariantId={selectedVariant?.id}
+            <ProductDescriptionBlock
+              description={product.description}
+              howToUse={product.how_to_use}
+              volume={product.volume}
+              ingridients={product.ingridients}
+            />
+            <AddToCartButton
+              buttonText={addToCartButtonText}
+              existingCartQuantity={cart.existingQuantity}
+              handleClick={cart.addToCart}
+              disabled={isAddToCartButtonDisabled}
+            />
+            <ProductStockStatusNotice
+              hasVariants={hasVariants}
+              selectedVariant={selectedVariant}
+              productStock={product.stock}
+              isOutOfStock={isOutOfStock}
+              stockStatus={stockStatus}
+              existingCartQuantity={cart.existingQuantity}
             />
           </div>
+        </div>
+        {variantsStatus === "loading" && (
+          <div className="mt-16 flex justify-center">
+            <div className="text-gray-500">{t("product.loadingVariants")}</div>
+          </div>
         )}
-      <div className="mt-16">
-        <SimilarProductSlider product={product} />
+        {variantsStatus !== "loading" &&
+          Array.isArray(variants) &&
+          variants.length > 0 && (
+            <div className="mt-16">
+              <ProductVariants
+                variants={variants}
+                productPrice={product.price}
+                onVariantSelect={handleVariantSelect}
+                selectedVariantId={selectedVariant?.id}
+              />
+            </div>
+          )}
       </div>
-    </div>
+      <div className="mt-16 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
+        <div className="mx-auto max-w-[1400px]">
+          <SimilarProductSlider product={product} />
+        </div>
+      </div>
+    </>
   );
 }
 

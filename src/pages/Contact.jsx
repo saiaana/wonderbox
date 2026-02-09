@@ -1,16 +1,19 @@
 import ContactCard from "../components/common/ContactCard";
-import { contactConfig } from "../config/contact.js";
+import { getContactConfig } from "../config/contact.js";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
+  const { t } = useTranslation();
+  const contactConfig = getContactConfig(t);
+  
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-extrabold text-stone-800 md:text-5xl">
-          Contact Us
+          {t("contact.title")}
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-stone-600">
-          We&apos;re here to help! Get in touch with us for any questions, support,
-          or inquiries about our cosmetics.
+          {t("contact.description")}
         </p>
       </div>
 
@@ -31,8 +34,8 @@ function Contact() {
               />
             </svg>
           }
-          title="Email"
-          description="Send us an email anytime"
+          title={t("contact.email.title")}
+          description={t("contact.email.description")}
           link={`mailto:${contactConfig.email}`}
           linkText={contactConfig.email}
         />
@@ -53,8 +56,8 @@ function Contact() {
               />
             </svg>
           }
-          title="Phone"
-          description="Call us during business hours"
+          title={t("contact.phone.title")}
+          description={t("contact.phone.description")}
           link={contactConfig.phone.link}
           linkText={contactConfig.phone.display}
         />
@@ -75,7 +78,7 @@ function Contact() {
               />
             </svg>
           }
-          title="Business Hours"
+          title={t("contact.businessHours.title")}
           content={
             <div className="space-y-1">
               <p>{contactConfig.businessHours.weekdays}</p>

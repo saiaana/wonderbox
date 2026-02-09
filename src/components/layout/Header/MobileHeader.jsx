@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import NavBlock from "./NavBlock";
 import { MENU_ITEMS } from "../../../constants/menuItems";
 import ROUTES from "../../../constants/routes";
 import { ROLES } from "../../../constants/roles";
+import LanguageSwitcher from "../../common/LanguageSwitcher";
 
 export default function MobileHeader() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const cartCount = useSelector((state) =>
@@ -37,17 +40,18 @@ export default function MobileHeader() {
 
   return (
     <>
-      <div className="fixed top-0 z-50 w-full border-b bg-white/70 backdrop-blur md:hidden">
-        <div className="flex h-14 items-center justify-between px-4">
+      <div className="fixed top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur-sm md:hidden">
+        <div className="flex h-12 items-center justify-between px-3 sm:h-14 sm:px-4">
           <Link
             to={ROUTES.home}
-            className="text-2xl font-semibold tracking-tight transition-colors duration-300 hover:text-pink-600"
-            aria-label="Go to home"
+            className="text-lg font-semibold tracking-tight transition-colors duration-300 hover:text-pink-600 sm:text-xl md:text-2xl"
+            aria-label={t("common.goToHome")}
           >
-            TINT
+            {t("common.wonderbox")}
           </Link>
 
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageSwitcher />
             <NavBlock color="black" cartCount={cartCount} isAdmin={isAdmin} />
             <BurgerButton onClick={toggleMenu} isOpen={isMenuOpen} />
           </div>
@@ -69,22 +73,23 @@ export default function MobileHeader() {
         aria-modal="true"
         className={[
           "fixed bottom-0 left-0 z-50 w-full md:hidden",
-          "rounded-t-2xl bg-white p-6 shadow-[0_-20px_60px_rgba(0,0,0,0.18)]",
-          "transition-transform duration-300",
+          "rounded-t-2xl bg-white p-4 shadow-[0_-20px_60px_rgba(0,0,0,0.18)]",
+          "transition-transform duration-300 ease-out",
+          "max-h-[85vh] overflow-y-auto",
           isMenuOpen ? "translate-y-0" : "translate-y-full",
         ].join(" ")}
       >
-        <div className="mx-auto mb-6 h-1 w-10 rounded-full bg-gray-300" />
+        <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-gray-300 sm:mb-6 sm:w-16" />
 
-        <ul className="space-y-5 text-lg uppercase tracking-wide">
+        <ul className="space-y-3 text-base uppercase tracking-wide sm:space-y-4 sm:text-lg">
           {MENU_ITEMS.map((item) => (
             <li key={item.label}>
               <NavLink
                 to={item.path}
                 onClick={closeMenu}
-                className="w-full border-b pb-2 text-left transition-colors hover:text-pink-600"
+                className="block w-full border-b border-stone-100 pb-3 text-left transition-colors hover:text-pink-600 active:text-pink-600 sm:pb-4"
               >
-                {item.label}
+                {t(`menu.${item.label}`)}
               </NavLink>
             </li>
           ))}
@@ -95,28 +100,47 @@ export default function MobileHeader() {
 }
 
 export function BurgerButton({ onClick, isOpen }) {
+  const { t } = useTranslation();
+  
   return (
     <button
       type="button"
       onClick={onClick}
-      className="transition active:scale-90"
-      aria-label={isOpen ? "Close menu" : "Open menu"}
+      className="flex items-center justify-center p-1.5 transition active:scale-90 sm:p-2"
+      aria-label={isOpen ? t("common.closeMenu") : t("common.openMenu")}
       aria-expanded={isOpen}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="black"
-        className="size-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
-      </svg>
+      {isOpen ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="h-5 w-5 sm:h-6 sm:w-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-5 w-5 sm:h-6 sm:w-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      )}
     </button>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import CatalogDropdown from "./CatalogDropdown";
 import { Link } from "react-router-dom";
 import { MENU_ITEMS } from "../../../constants/menuItems";
@@ -16,6 +17,7 @@ const baseItemClass = `
 `;
 
 function HeaderCategories() {
+  const { t } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -26,7 +28,7 @@ function HeaderCategories() {
           className={` ${baseItemClass} ${isDropdownOpen ? "text-pink-400 after:scale-x-100" : ""} after:bg-pink-600`}
         >
           <span className="flex items-center gap-1">
-            products
+            {t("menu.products")}
             <span
               className={`transition-transform duration-300 ${
                 isDropdownOpen ? "rotate-180" : ""
@@ -47,7 +49,7 @@ function HeaderCategories() {
             to={item.path}
             className={` ${baseItemClass} after:bg-pink-600 hover:text-pink-400`}
           >
-            {item.label}
+            {t(`menu.${item.label}`)}
           </Link>
         ))}
       </ul>

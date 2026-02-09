@@ -1,0 +1,147 @@
+{
+  "common": {
+    "wonderbox": "Wonderbox",
+    "contactUs": "Contact Us",
+    "goToHome": "Go to home",
+    "goBack": "Go Back",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "remove": "Remove",
+    "selectAll": "Select all",
+    "closeModal": "Close modal",
+    "searching": "Searching…",
+    "noResults": "No results found",
+    "loadingMore": "Loading more products...",
+    "loadingCategories": "Loading categories…",
+    "searchProducts": "Search products",
+    "searchProductsPlaceholder": "Search by product name…",
+    "youMayAlsoLike": "You may also like",
+    "brands": "Brands",
+    "categories": "Categories"
+  },
+  "menu": {
+    "brands": "BRANDS",
+    "categories": "CATEGORIES",
+    "newIn": "NEW IN",
+    "promotions": "PROMOTIONS",
+    "bestsellers": "BESTSELLERS",
+    "blog": "BLOG",
+    "contactUs": "CONTACT US",
+    "cart": "CART",
+    "products": "PRODUCTS"
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "addMore": "Add more",
+    "outOfStock": "Out of stock",
+    "inStock": "In Stock",
+    "lowStock": "Low Stock",
+    "selectVariant": "Please select a variant",
+    "loadingVariants": "Loading variants...",
+    "notAvailable": "Product is not available anymore",
+    "exceededMaxQuantity": "Exceeded max available quantity",
+    "maxQuantityReached": "Max available quantity reached",
+    "availableVariants": "Available Variants",
+    "onlyLeftInStock": "Only {{availableStock}} left in stock",
+    "description": "Description",
+    "howToUse": "How to Use",
+    "ingredients": "Ingredients",
+    "volume": "Volume",
+    "showIngredients": "Show ingredients",
+    "hideIngredients": "Hide ingredients"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "clearCart": "Clear cart",
+    "empty": "Your cart is empty.",
+    "emptyDescription": "Looks like you haven't added anything to your cart yet.",
+    "removeItem": "Remove item from cart",
+    "removeItemConfirm": "Are you sure you want to remove this item from your cart?",
+    "clearCartConfirm": "Are you sure you want to clear your cart?",
+    "clear": "Clear",
+    "total": "Total",
+    "proceedToOrder": "Proceed to order",
+    "selectItemToProceed": "Select at least one item to proceed",
+    "itemsSelected": "Items selected",
+    "orderSummary": "Order summary"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "signUp": "Sign up",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "createAccount": "Create an account",
+    "loggingIn": "Logging in...",
+    "creating": "Creating...",
+    "noAccount": "Do not have an account yet?",
+    "haveAccount": "You have an account?",
+    "passwordInstructions": "Password must contain minimum 8 symbols including 1 uppercase letter and 1 special character"
+  },
+  "order": {
+    "createOrder": "Create Order",
+    "orderConfirmation": "Order Confirmation",
+    "orderHistory": "Order History",
+    "loadingOrders": "Loading orders...",
+    "loadingStatistics": "Loading statistics...",
+    "noOrders": "You don't have any orders yet."
+  },
+  "admin": {
+    "admin": "Admin",
+    "orders": "Orders",
+    "products": "Products",
+    "stats": "Statistics",
+    "addProduct": "Add Product",
+    "loadingProducts": "Loading products...",
+    "logoutConfirm": "Are you sure you want to logout?"
+  },
+  "loading": {
+    "title": "Wonderbox",
+    "description": "your k-beauty store"
+  },
+  "account": {
+    "title": "My account",
+    "profile": "Profile"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We're here to help! Get in touch with us for any questions, support, or inquiries about our cosmetics.",
+    "email": {
+      "title": "Email",
+      "description": "Send us an email anytime"
+    },
+    "phone": {
+      "title": "Phone",
+      "description": "Call us during business hours"
+    },
+    "businessHours": {
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "saturday": "Saturday: 10:00 AM - 4:00 PM",
+      "sunday": "Sunday: Closed"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist."
+  },
+  "locations": {
+    "addresses": {
+      "title": "Our Addresses"
+    },
+    "store1": {
+      "name": "OUR ADDRESS",
+      "address": "Busan, Haeundae-gu, U-dong 1470, AceHightech21, Office 1813"
+    },
+    "contacts": {
+      "title": "Contact Information"
+    }
+  }
+}

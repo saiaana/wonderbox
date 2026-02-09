@@ -4,8 +4,10 @@ import ProductCategories from "../components/common/ProductCategories";
 import PromotionsSlider from "../components/ui/sliders/PromotionsSlider";
 import HeaderSlider from "../components/ui/sliders/HeaderSlider";
 import BestsellersSlider from "../components/ui/sliders/BestsellersSlider";
+import BrandsSlider from "../components/ui/sliders/BrandsSlider";
 import Locations from "../components/common/Locations";
 import NewProductsSlider from "../components/ui/sliders/NewProductsSlider";
+import BlogSlider from "../components/ui/sliders/BlogSlider";
 import { HomePageSkeleton } from "../components/ui/skeletons";
 import {
   selectNewProductsStatus,
@@ -33,12 +35,14 @@ function Home() {
     newProducts: true,
     promotions: true,
     bestsellers: true,
+    blog: true,
     locations: true,
   });
 
   const newProductsRef = useRef(null);
   const promotionsRef = useRef(null);
   const bestsellersRef = useRef(null);
+  const blogRef = useRef(null);
   const locationsRef = useRef(null);
 
   // Загружаем данные для всех слайдеров сразу при монтировании
@@ -105,6 +109,7 @@ function Home() {
     observeSection(newProductsRef, "newProducts");
     observeSection(promotionsRef, "promotions");
     observeSection(bestsellersRef, "bestsellers");
+    observeSection(blogRef, "blog");
     observeSection(locationsRef, "locations");
 
     return () => {
@@ -132,8 +137,16 @@ function Home() {
         <div ref={bestsellersRef}>
           {visibleSections.bestsellers && <BestsellersSlider />}
         </div>
+        <div ref={blogRef}>
+          {visibleSections.blog && <BlogSlider />}
+        </div>
         <div ref={locationsRef}>
-          {visibleSections.locations && <Locations />}
+          {visibleSections.locations && (
+            <>
+              <BrandsSlider />
+              <Locations />
+            </>
+          )}
         </div>
       </div>
     </div>

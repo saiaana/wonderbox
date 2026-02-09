@@ -1,4 +1,5 @@
 import { getMaxAvailableQuantity } from "../../../utils/products/getMaxAvailableQuantity";
+import { useTranslation } from "react-i18next";
 
 export default function ProductStockStatusNotice({
   hasVariants,
@@ -8,17 +9,18 @@ export default function ProductStockStatusNotice({
   stockStatus,
   existingCartQuantity,
 }) {
+  const { t } = useTranslation();
   if (hasVariants && !selectedVariant) {
     return (
       <p className="text-sm text-amber-600">
-        Please select a variant before adding to cart
+        {t("product.selectVariant")}
       </p>
     );
   }
 
   if (isOutOfStock) {
     return (
-      <p className="text-sm text-amber-600">This product is out of stock</p>
+      <p className="text-sm text-amber-600">{t("product.outOfStock")}</p>
     );
   }
 
@@ -33,7 +35,7 @@ export default function ProductStockStatusNotice({
   if (availableStock <= 0) {
     return (
       <p className="text-sm text-amber-600">
-        Maximum available quantity reached
+        {t("product.maxQuantityReached")}
       </p>
     );
   }
@@ -41,7 +43,7 @@ export default function ProductStockStatusNotice({
   if (stockStatus === "Low Stock" || availableStock <= 5) {
     return (
       <p className="text-sm text-amber-600">
-        Only {availableStock} left in stock
+        {t("product.onlyLeftInStock", { availableStock })}
       </p>
     );
   }

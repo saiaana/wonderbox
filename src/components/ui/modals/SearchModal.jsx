@@ -5,6 +5,7 @@ import useProductSearch from "../../../hooks/useProductSearch";
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
 import ImageWithLoader from "../ImageWithLoader";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   backdrop:
@@ -42,6 +43,7 @@ const styles = {
 };
 
 export default function SearchModal({ open, onClose }) {
+  const { t } = useTranslation();
   const { query, results, loading, error, updateQuery, resetSearch } =
     useProductSearch(open);
 
@@ -67,7 +69,7 @@ export default function SearchModal({ open, onClose }) {
       <div className={styles.modal}>
         <div className={styles.header}>
           <div className={styles.headerInner}>
-            <h2 className={styles.title}>Search products</h2>
+            <h2 className={styles.title}> {t("common.searchProducts")} </h2>
             <button onClick={handleClose} className={styles.closeButton}>
               ✕
             </button>
@@ -78,7 +80,7 @@ export default function SearchModal({ open, onClose }) {
             <input
               value={query}
               onChange={(e) => updateQuery(e.target.value)}
-              placeholder="Search by product name…"
+              placeholder={t("common.searchProductsPlaceholder")}
               autoFocus
               className={styles.searchInput}
             />

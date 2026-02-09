@@ -19,14 +19,14 @@ function NavBlock({ color, cartCount, isAdmin = false }) {
   };
 
   return (
-    <div className="flex cursor-pointer gap-10">
+    <div className="flex cursor-pointer items-center gap-3 sm:gap-4 md:gap-6 lg:gap-10">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke={color}
-        className="size-5"
+        className="h-4 w-4 sm:h-5 sm:w-5"
         onClick={() => setSearchModalOpen(true)}
       >
         <path
@@ -36,14 +36,14 @@ function NavBlock({ color, cartCount, isAdmin = false }) {
         />
       </svg>
       {isAdmin ? (
-        <Link to={NAV_ITEMS.admin.path}>
+        <Link to={NAV_ITEMS.admin.path} className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke={color}
-            className="size-5"
+            className="h-4 w-4 sm:h-5 sm:w-5"
           >
             <path
               strokeLinecap="round"
@@ -59,14 +59,14 @@ function NavBlock({ color, cartCount, isAdmin = false }) {
         </Link>
       ) : (
         <>
-          <Link to={NAV_ITEMS.account.path}>
+          <Link to={NAV_ITEMS.account.path} className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke={color}
-              className="size-5"
+              className="h-4 w-4 sm:h-5 sm:w-5"
             >
               <path
                 strokeLinecap="round"
@@ -76,14 +76,14 @@ function NavBlock({ color, cartCount, isAdmin = false }) {
             </svg>
           </Link>
 
-          <Link to={NAV_ITEMS.cart.path} className="relative cursor-pointer">
+          <Link to={NAV_ITEMS.cart.path} className="relative flex items-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke={color}
-              className="size-5"
+              className="h-4 w-4 sm:h-5 sm:w-5"
             >
               <path
                 strokeLinecap="round"
@@ -98,8 +98,8 @@ function NavBlock({ color, cartCount, isAdmin = false }) {
             </svg>
 
             {cartCount > 0 && (
-              <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full border border-white bg-pink-600 text-[12px] text-white">
-                {cartCount}
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white bg-pink-600 text-[10px] font-bold text-white sm:h-4 sm:w-4 sm:text-xs">
+                {cartCount > 99 ? '99+' : cartCount}
               </span>
             )}
           </Link>

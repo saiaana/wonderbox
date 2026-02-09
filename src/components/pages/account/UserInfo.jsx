@@ -1,7 +1,9 @@
 import ConfirmModal from "../../ui/modals/ConfirmModal";
 import useLogout from "../../../hooks/useLogout";
+import { useTranslation } from "react-i18next";
 
 function UserInfo({ user }) {
+  const { t } = useTranslation();
   const {
     isConfirmOpen,
     requestLogout,
@@ -12,7 +14,7 @@ function UserInfo({ user }) {
 
   return (
     <div className="h-fit rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold text-stone-800">Profile</h2>
+      <h2 className="mb-4 text-xl font-bold text-stone-800"> {t("account.profile")} </h2>
 
       {user ? (
         <div className="space-y-3 text-sm text-stone-700">

@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import CreateOrderForm from "../components/pages/order/CreateOrderForm";
 import OrderSummary from "../components/pages/order/OrderSummary";
 import useCreateOrder from "../hooks/useCreateOrder";
 import { formatPriceNumber } from "../utils/helpers";
 
 function CreateOrder() {
+  const { t } = useTranslation();
   const {
     formData,
     handleChange,
@@ -15,7 +17,7 @@ function CreateOrder() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-5xl px-4">
-      <h1 className="mb-8 text-3xl font-extrabold text-stone-800">Checkout</h1>
+      <h1 className="mb-8 text-3xl font-extrabold text-stone-800">{t("order.createOrder")}</h1>
 
       <div className="grid gap-8 md:grid-cols-[1fr_380px]">
         <CreateOrderForm formData={formData} onChange={handleChange} />

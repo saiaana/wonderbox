@@ -6,8 +6,10 @@ import {
 import Slider from "./Slider";
 import Loading from "../../../pages/Loading";
 import useSliderProducts from "../../../hooks/useSliderProducts.js";
+import { useTranslation } from "react-i18next";
 
 function BestsellersSlider() {
+  const { t } = useTranslation();
   const { products: bestsellerProducts, status } = useSliderProducts({
     productsSelector: selectBestsellerProducts,
     statusSelector: selectBestsellerProductsStatus,
@@ -20,7 +22,7 @@ function BestsellersSlider() {
 
   if (bestsellerProducts && bestsellerProducts.length === 0) return null;
 
-  return <Slider products={bestsellerProducts} title="bestsellers" />;
+  return <Slider products={bestsellerProducts} title={t("menu.bestsellers")} />;
 }
 
 export default BestsellersSlider;

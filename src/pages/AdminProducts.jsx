@@ -1,10 +1,12 @@
 
 import { useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAdminProducts } from "../hooks/useAdminProducts";
 import AdminProductsTable from "../components/pages/admin/AdminProductsTable";
 import AdminPageReturnButton from "../components/pages/admin/AdminPageReturnButton";
 export default function AdminProducts() {
+  const { t } = useTranslation();
   const user = useSelector((state) => state.auth.user);
  const navigate = useNavigate();
  const navigateToEdit = (productId) => {
@@ -18,12 +20,12 @@ export default function AdminProducts() {
     <div className="mx-auto max-w-7xl px-4 py-8">
 <AdminPageReturnButton />
       <h1 className="mb-8 text-3xl font-extrabold text-stone-800">
-        Admin Panel - Products Management
+        {t("admin.admin")} - {t("admin.products")}
       </h1>
 
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <p className="text-stone-600">Loading products...</p>
+          <p className="text-stone-600">{t("admin.loadingProducts")}</p>
         </div>
       ) : error ? (
         <div className="rounded-lg bg-red-50 p-4 text-red-800">

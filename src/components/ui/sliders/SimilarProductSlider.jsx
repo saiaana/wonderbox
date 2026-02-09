@@ -5,8 +5,10 @@ import {
   selectSimilarProducts,
 } from "../../../store/slices/productsSlice";
 import Slider from "./Slider";
+import { useTranslation } from "react-i18next";
 
 function SimilarProductSlider({ product }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function SimilarProductSlider({ product }) {
     return null;
   }
 
-  return <Slider products={filteredProducts} title="you may also like" />;
+  return <Slider products={filteredProducts} title={t("common.youMayAlsoLike")} />;
 }
 
 export default SimilarProductSlider;

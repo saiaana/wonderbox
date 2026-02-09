@@ -5,6 +5,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/index.js";
 import { initAuthListener } from "./auth/initAuthListener.js";
+import "./i18n/config.js";
 
 initAuthListener();
 

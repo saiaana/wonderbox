@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import SignUpForm from "../components/ui/forms/SignUpForm";
 import ROUTES from "../constants/routes";
@@ -7,6 +8,7 @@ import Loading from "./Loading";
 import useSignUp from "../hooks/useSignUp";
 
 function SignUp() {
+  const { t } = useTranslation();
   const {
     formData,
     error,
@@ -22,7 +24,7 @@ function SignUp() {
 
   return (
     <AuthFormLayout
-      title="Create an account"
+      title={t("auth.createAccount")}
       error={error}
       isLoading={isLoading}
       onSubmit={handleSignUp}
@@ -30,16 +32,16 @@ function SignUp() {
       <SignUpForm formData={formData} onChange={handleChange} />
       <SubmitButton
         isLoading={isLoading}
-        text="Sign up"
-        loadingText="Creating..."
+        text={t("auth.signUp")}
+        loadingText={t("auth.creating")}
       />
       <p className="mt-4 text-center text-sm text-gray-600">
-        You have an account?
+        {t("auth.haveAccount")}{" "}
         <Link
           to={ROUTES.login}
           className="font-semibold text-pink-600 hover:underline"
         >
-          Login
+          {t("auth.login")}
         </Link>
       </p>
     </AuthFormLayout>

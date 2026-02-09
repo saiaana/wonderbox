@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useTranslation } from "react-i18next";
 
 function ProductVariants({
   variants,
@@ -11,6 +12,7 @@ function ProductVariants({
   onVariantSelect,
   selectedVariantId: externalSelectedVariantId,
 }) {
+  const { t } = useTranslation();
   const [internalSelectedVariantId, setInternalSelectedVariantId] =
     useState(null);
   const selectedVariantId =
@@ -32,7 +34,7 @@ function ProductVariants({
   return (
     <div className="flex flex-col gap-4">
       <h3 className="text-xl font-semibold text-gray-800">
-        Available Variants
+        {t("product.availableVariants")}
       </h3>
       <div>
         <Swiper

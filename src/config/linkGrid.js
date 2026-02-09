@@ -1,11 +1,11 @@
 export const linkGridConfig = {
     brands: {
-        title: "brands on tint",
+        title: "brands on wonderbox",
         path: "brands",
     },
     categories: {
-        title: "categories on tint",
+        title: "categories on wonderbox",
         path: "categories",
     },
-    companyTitle: "on TINT",
+    companyTitle: "on Wonderbox",
 }

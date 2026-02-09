@@ -34,35 +34,35 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <BlogList />,
         handle: {
-          label: "BLOG",
+          label: "blog",
         },
       },
       {
         path: "/blog/:blogPostName",
         element: <BlogPost />,
         handle: {
-          label: "BLOG",
+          label: "blog",
         },
       },
       {
         path: "/cart",
         element: <Cart />,
         handle: {
-          label: "CART",
+          label: "cart",
         },
       },
       {
         path: "/new-in",
         element: <Products />,
         handle: {
-          label: "NEW IN",
+          label: "newIn",
         },
       },
       {
         path: "/promotions",
         element: <Products />,
         handle: {
-          label: "PROMOTIONS",
+          label: "promotions",
         },
       },
 
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
         path: "/bestsellers",
         element: <Products />,
         handle: {
-          label: "BESTSELLERS",
+          label: "bestsellers",
         },
       },
 
@@ -78,14 +78,14 @@ const router = createBrowserRouter([
         path: "/categories",
         element: <CategoriesList />,
         handle: {
-          label: "CATEGORIES",
+          label: "categories",
         },
       },
       {
         path: "/categories/:productsCategory",
         element: <Products />,
         handle: {
-          label: (params) => params.productsCategory.toUpperCase(),
+          label: (params) => params.productsCategory.toLowerCase(),
         },
       },
 
@@ -93,14 +93,14 @@ const router = createBrowserRouter([
         path: "/brands",
         element: <BrandsList />,
         handle: {
-          label: "BRANDS",
+          label: "brands",
         },
       },
       {
         path: "/brands/:brand",
         element: <Products />,
         handle: {
-          label: (params) => params.brand.toUpperCase(),
+          label: (params) => params.brand.toLowerCase(),
         },
       },
     ],
