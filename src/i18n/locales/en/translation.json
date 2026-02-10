@@ -31,7 +31,8 @@
     "blog": "BLOG",
     "contactUs": "CONTACT US",
     "cart": "CART",
-    "products": "PRODUCTS"
+    "products": "PRODUCTS",
+    "new": "NEW"
   },
   "product": {
     "addToCart": "Add to cart",

@@ -31,7 +31,8 @@
     "blog": "블로그",
     "contactUs": "문의하기",
     "cart": "장바구니",
-    "products": "상품"
+    "products": "상품",
+    "new": "신상품"
   },
   "product": {
     "addToCart": "장바구니에 추가",
