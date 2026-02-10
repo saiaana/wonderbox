@@ -25,14 +25,13 @@
   "menu": {
     "brands": "BRANDS",
     "categories": "CATEGORIES",
-    "newIn": "NEW IN",
+    "new": "NEW",
     "promotions": "PROMOTIONS",
     "bestsellers": "BESTSELLERS",
     "blog": "BLOG",
     "contactUs": "CONTACT US",
     "cart": "CART",
-    "products": "PRODUCTS",
-    "new": "NEW"
+    "products": "PRODUCTS"
   },
   "product": {
     "addToCart": "Add to cart",

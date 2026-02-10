@@ -25,14 +25,13 @@
   "menu": {
     "brands": "БРЕНДЫ",
     "categories": "КАТЕГОРИИ",
-    "newIn": "НОВИНКИ",
+    "new": "НОВИНКИ",
     "promotions": "АКЦИИ",
     "bestsellers": "БЕСТСЕЛЛЕРЫ",
     "blog": "БЛОГ",
     "contactUs": "СВЯЗАТЬСЯ С НАМИ",
     "cart": "КОРЗИНА",
-    "products": "ТОВАРЫ",
-    "new": "НОВИНКИ"
+    "products": "ТОВАРЫ"
   },
   "product": {
     "addToCart": "Добавить в корзину",

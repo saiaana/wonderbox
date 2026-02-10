@@ -4,7 +4,7 @@ const ROUTES = {
   account: "/account",
   cart: "/cart",
   brands: "/brands",
-  newIn: "/new-in",
+  new: "/new-in",
   promotions: "/promotions",
   bestsellers: "/bestsellers",
   blog: "/blog",

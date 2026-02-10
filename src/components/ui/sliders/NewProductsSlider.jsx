@@ -22,7 +22,12 @@ function NewProductsSlider() {
 
   if (newProducts && newProducts.length === 0) return null;
 
-  return <Slider products={newProducts} title={t("menu.newIn")} />;
+  return (
+    <Slider
+      products={newProducts}
+      title={t("menu.new", { defaultValue: "NEW" })}
+    />
+  );
 }
 
 export default NewProductsSlider;

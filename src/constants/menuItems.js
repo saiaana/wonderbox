@@ -3,7 +3,7 @@ import ROUTES from "./routes";
 export const MENU_ITEMS = [
   { label: "brands", path: ROUTES.brands },
   { label: "categories", path: ROUTES.categories },
-  { label: "newIn", path: ROUTES.newIn },
+  { label: "new", path: ROUTES.new },
   { label: "promotions", path: ROUTES.promotions },
   { label: "bestsellers", path: ROUTES.bestsellers },
   { label: "blog", path: ROUTES.blog },

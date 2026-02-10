@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         path: "/new-in",
         element: <Products />,
         handle: {
-          label: "newIn",
+          label: "new",
         },
       },
       {
